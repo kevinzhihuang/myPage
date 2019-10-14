@@ -1,2 +1,2 @@
 # myPage
-All the files are in gh-pages
+Testing out the hosting of my webpage on GitHub Pages
