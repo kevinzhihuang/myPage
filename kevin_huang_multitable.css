@@ -42,6 +42,11 @@ td {
   text-align: center;
 }
 
+td:nth-child(1), tr:nth-child(1) {
+  color: white;
+  background-color: black;
+}
+
 .table {
   margin-top: 50px;
 }
