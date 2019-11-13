@@ -2,10 +2,34 @@
 <!---->
 <html lang ="en">
   <head>
-    <<title>Multiplication Table</title>
+    <meta charset=utf-8 />
+    <title>Multiplication Table</title>
     <link href ="kevin_huang_multitable.css" rel ="stylesheet">
   </head>
-  <<body>
-    
-  </body>
+  <div class="wrapper">
+    <div class="warning">
+      <p>
+        Warning!!!<br> Some input may not be handled well so please use
+        reasonable <br>numbers between the range of -50 and 50 if possible!
+      </p>
+    </div>
+    <div class="form">
+      <form>
+        Horizontal Start #:<br>
+        <input type="text" id="starthorizontal"><br>
+        Horizontal End #:<br>
+        <input type="text" id="endhorizontal"><br>
+        Vertical Start #:<br>
+        <input type="text" id="startvertical"><br>
+        Vertical End #:<br>
+        <input type="text" id="endvertical"><br><br>
+      </form>
+      <button type="button" onclick="multiply()">Submit</button>
+    </div>
+    <div class="table">
+      <table id="myTable">
+      </table>
+    </div>
+    <script src="kevin_huang_multitable.js"></script>
+  </div>
 </html>
