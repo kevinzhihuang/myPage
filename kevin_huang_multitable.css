@@ -1,0 +1,47 @@
+html {
+  background-image: linear-gradient(lightgrey, skyblue);
+  min-height: 100%;
+}
+
+h2 {
+  color: red;
+  font-style: italic;
+}
+
+input[type=text] {
+  box-sizing: border-box;
+  width: 400px;
+  padding: 10px;
+  margin: 8px 0;
+  font-size: 15px;
+  border-radius: 5px;
+  background-color: lightcyan;
+}
+
+input[type=text]:focus {
+  border: 2px solid #555;
+}
+
+button {
+  background-color: black;
+  border-radius: 5px;
+  color: white;
+  padding: 15px 25px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+}
+
+table {
+  border-spacing: 0px;
+}
+
+td {
+  border: 2px solid black;
+  padding: 7px;
+  text-align: center;
+}
+
+.table {
+  margin-top: 50px;
+}
