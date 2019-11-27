@@ -1,0 +1,45 @@
+<!--
+91.61 GUI Programming I: Creating an Interactive Dynamic Table
+Kevin Z. Huang , kevin_huang2@student.uml.edu
+Copyright (c) 2019 by Kevin Z. Huang.
+Assignment to try out javascript and make an interactive Dynamic
+table
+Created November 10, 2019 at 5:02 PM
+Updated by KZH on November 13, 2019 at 8:15 PM
+-->
+<!DOCTYPE html>
+<html lang ="en">
+  <head>
+    <meta charset=utf-8 />
+    <title>Multiplication Table</title>
+    <link href ="kevin_huang_multitable.css" rel ="stylesheet">
+  </head>
+  <div class="wrapper">
+    <div class="warning">
+      <h2> <!--This is warning for the user about what type of inputs to use-->
+        Warning!!!<br> Some input may not be handled well so please use
+        reasonable <br>numbers between the range of -50 and 50 if possible!
+      </h2>
+    </div>
+    <!--This is the input form user will interact with-->
+    <div class="form">
+      <form>
+        Horizontal Start #: (Must be smaller than Horizontal End #)<br>
+        <input type="text" id="starthorizontal"><br>
+        Horizontal End #:<br>
+        <input type="text" id="endhorizontal"><br>
+        Vertical Start #: (Must be smaller than Vertical End #)<br>
+        <input type="text" id="startvertical"><br>
+        Vertical End #:<br>
+        <input type="text" id="endvertical"><br><br>
+      </form>
+      <button type="button" onclick="multiply()">Submit</button>
+    </div>
+    <!--Placeholder for when the multiplacation table will be made-->
+    <div class="table">
+      <table id="myTable">
+      </table>
+    </div>
+    <script src="kevin_huang_multitable.js"></script>
+  </div>
+</html>
