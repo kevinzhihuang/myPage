@@ -43,17 +43,20 @@ $(document).ready(function() {
       endhorizontal: {
         required: "Please enter a number",
         number: "Input must be a number",
-        range: "Please enter a number between -50 and 50"
+        range: "Please enter a number between -50 and 50",
+        lessThan: "Must be larger than horizontal start #"
       },
       startvertical: {
         required: "Please enter a number less than vertical end #",
         number: "Input must be a number",
-        range: "Please enter a number between -50 and 50"
+        range: "Please enter a number between -50 and 50",
+        greaterThan: "Must be smaller than vertical end #"
       },
       endvertical: {
         required: "Please enter a number",
         number: "Input must be a number",
-        range: "Please enter a number between -50 and 50"
+        range: "Please enter a number between -50 and 50",
+        lessThan: "Must be larger than vertical start #"
       },
     },
   });
