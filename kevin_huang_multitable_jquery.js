@@ -1,33 +1,44 @@
 $(document).ready(function() {
+  jQuery.validator.addMethod('greaterThan', function (value, element, param) {
+        return this.optional(element) || parseInt(value) <= parseInt($(param).val());
+    }, 'Invalid value');
+  jQuery.validator.addMethod('lessThan', function (value, element, param) {
+        return this.optional(element) || parseInt(value) >= parseInt($(param).val());
+    }, 'Invalid value');
   alert('Validation has loaded! Thank you for waiting.')
   $('#inputform').validate({
     rules: {
       starthorizontal: {
         required: true,
         number: true,
-        range: [-50,50]
+        range: [-50,50],
+        greaterThan: '#endhorizontal'
       },
       endhorizontal: {
         required: true,
         number: true,
-        range: [-50,50]
+        range: [-50,50],
+        lessThan: '#starthorizontal'
       },
       startvertical: {
         required: true,
         number: true,
-        range: [-50,50]
+        range: [-50,50],
+        greaterThan: '#endvertical'
       },
       endvertical: {
         required: true,
         number: true,
-        range: [-50,50]
+        range: [-50,50],
+        lessThan: '#startvertical'
       },
     },
     messages: {
       starthorizontal: {
         required: "Please enter a starting number less than horizontal end #",
         number: "Input must be a number",
-        range: "Please enter a number between -50 and 50"
+        range: "Please enter a number between -50 and 50",
+        greaterThan: "Must be smaller than horizontal end #"
       },
       endhorizontal: {
         required: "Please enter a number",
