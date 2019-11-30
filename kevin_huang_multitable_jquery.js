@@ -1,10 +1,19 @@
 $(document).ready(function() {
-  
-})
-
-
-
-
+  $('#inputform').validate({
+    rules: {
+      starthorizontal: "required",
+      endhorizontal: "required",
+      startvertical: "required",
+      endvertical: "required",
+    },
+    messages: {
+      starthorizontal: "Please enter a starting number less than horizontal end #",
+      endhorizontal: "Please enter a number",
+      startvertical: "Please enter a starting number less than vertical end #",
+      endvertical: "Please enter a number",
+    },
+  });
+});
 
 function multiply() {
   //All these vars are just used for keeping track of certain numbers needed

@@ -24,31 +24,34 @@ Updated by KZH on November 13, 2019 at 8:15 PM
     <!--This is the input form user will interact with-->
     <div class="form">
       <form id="inputform">
-        <p>
-          <label for="starthoriz">Horizontal Start #:</label>
-          <input type="number" id="starthorizontal"><br>
-        </p>
-        <p>
-          <label for="endhoriz">Horizontal End #:</label>
-          <input type="number" id="endhorizontal"><br>
-        </p>
-        <p>
-          <label for="startvert">Vertical Start #:</label>
-          <input type="number" id="startvertical"><br>
-        </p>
-        <p>
-          <label for="endvert">Vertical End #:</label>
-          <input type="number" id="endvertical"><br><br>
-        </p>
+        <fieldset>
+          <p>
+            <label for="starthoriz">Horizontal Start #:</label>
+            <input type="text" id="starthorizontal" name="starthorizontal"><br>
+          </p>
+          <p>
+            <label for="endhoriz">Horizontal End #:</label>
+            <input type="text" id="endhorizontal" name="endhorizontal"><br>
+          </p>
+          <p>
+            <label for="startvert">Vertical Start #:</label>
+            <input type="text" id="startvertical" name="startvertical"><br>
+          </p>
+          <p>
+            <label for="endvert">Vertical End #:</label>
+            <input type="text" id="endvertical" name="endvertical"><br><br>
+          </p>
+        </fieldset>
       </form>
-      <button type="button" id="validate">Submit</button>
+      <button type="button" id="validate" onclick="multiply()">Submit</button>
     </div>
     <!--Placeholder for when the multiplacation table will be made-->
     <div class="table">
       <table id="myTable">
       </table>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>-->
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.js"></script>
     <script src="kevin_huang_multitable_jquery.js"></script>
   </div>
