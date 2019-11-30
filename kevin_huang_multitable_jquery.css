@@ -1,0 +1,74 @@
+/*
+91.61 GUI Programming I: Creating an Interactive Dynamic Table
+Kevin Z. Huang , kevin_huang2@student.uml.edu
+Copyright (c) 2019 by Kevin Z. Huang.
+Assignment to try out javascript and make an interactive Dynamic
+table
+Created November 10, 2019 at 5:02 PM
+Updated by KZH on November 13, 2019 at 8:15 PM
+*/
+html { /*The background color for the page that will scale with how big page gets*/
+  background-image: linear-gradient(lightgrey, skyblue);
+  min-height: 100%;
+}
+
+h2 {
+  color: red;
+  font-style: italic;
+}
+
+/*Other Browsers to make the arrows on number input disappear*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance:textfield;
+}
+/*This starts the styling of the input form*/
+input[type=text] { /*The styling of the input form which gives it a background color and other basic stylings*/
+  box-sizing: border-box;
+  width: 400px;
+  padding: 10px;
+  margin: 8px 0;
+  font-size: 15px;
+  border-radius: 5px;
+  background-color: lightcyan;
+}
+
+input[type=text]:focus { /*Gives input boxes an outline when focused on it*/
+  border: 2px solid #555;
+}
+
+button { /*Button styling for the submit button*/
+  background-color: black;
+  border-radius: 5px;
+  color: white;
+  padding: 15px 25px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+}
+
+/*This starts the styling of the multiplication table*/
+table {
+  border-spacing: 0px;
+}
+
+td {
+  border: 2px solid black;
+  padding: 7px;
+  text-align: center;
+}
+
+td:nth-child(1), tr:nth-child(1) { /*Choosing the first row and first column to have a different background*/
+  color: white;
+  background-color: black;
+}
+
+.table {
+  margin-top: 50px;
+}
