@@ -1,38 +1,47 @@
 $(document).ready(function() {
+  alert('Validation has loaded! Thank you for waiting.')
   $('#inputform').validate({
     rules: {
       starthorizontal: {
         required: true,
+        number: true,
         range: [-50,50]
       },
       endhorizontal: {
         required: true,
+        number: true,
         range: [-50,50]
       },
       startvertical: {
         required: true,
+        number: true,
         range: [-50,50]
       },
       endvertical: {
         required: true,
+        number: true,
         range: [-50,50]
       },
     },
     messages: {
       starthorizontal: {
         required: "Please enter a starting number less than horizontal end #",
+        number: "Input must be a number",
         range: "Please enter a number between -50 and 50"
       },
       endhorizontal: {
         required: "Please enter a number",
+        number: "Input must be a number",
         range: "Please enter a number between -50 and 50"
       },
       startvertical: {
         required: "Please enter a number less than vertical end #",
+        number: "Input must be a number",
         range: "Please enter a number between -50 and 50"
       },
       endvertical: {
         required: "Please enter a number",
+        number: "Input must be a number",
         range: "Please enter a number between -50 and 50"
       },
     },
