@@ -1,16 +1,40 @@
 $(document).ready(function() {
   $('#inputform').validate({
     rules: {
-      starthorizontal: "required",
-      endhorizontal: "required",
-      startvertical: "required",
-      endvertical: "required",
+      starthorizontal: {
+        required: true,
+        range: [-50,50]
+      },
+      endhorizontal: {
+        required: true,
+        range: [-50,50]
+      },
+      startvertical: {
+        required: true,
+        range: [-50,50]
+      },
+      endvertical: {
+        required: true,
+        range: [-50,50]
+      },
     },
     messages: {
-      starthorizontal: "Please enter a starting number less than horizontal end #",
-      endhorizontal: "Please enter a number",
-      startvertical: "Please enter a starting number less than vertical end #",
-      endvertical: "Please enter a number",
+      starthorizontal: {
+        required: "Please enter a starting number less than horizontal end #",
+        range: "Please enter a number between -50 and 50"
+      },
+      endhorizontal: {
+        required: "Please enter a number",
+        range: "Please enter a number between -50 and 50"
+      },
+      startvertical: {
+        required: "Please enter a number less than vertical end #",
+        range: "Please enter a number between -50 and 50"
+      },
+      endvertical: {
+        required: "Please enter a number",
+        range: "Please enter a number between -50 and 50"
+      },
     },
   });
 });
