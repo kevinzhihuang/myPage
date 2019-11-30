@@ -17,6 +17,17 @@ h2 {
   font-style: italic;
 }
 
+/*Other Browsers to make the arrows on number input disappear*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance:textfield;
+}
 /*This starts the styling of the input form*/
 input[type=text] { /*The styling of the input form which gives it a background color and other basic stylings*/
   box-sizing: border-box;

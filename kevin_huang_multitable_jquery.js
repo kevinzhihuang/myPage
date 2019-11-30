@@ -1,15 +1,8 @@
-var firsthoriz = $('#starthorizontal').val();
-var endhoriz = $('#endhorizontal').val();
-var firstvert = $('#startvertical').val();
-var endvert = $('#endvertical').val();
-
-$('#validate').click(function() {
-
-  if (firsthoriz == 0) {
-    alert('Test test');
-    $('#starthorizontal').focus();
-  }
+$(document).ready(function() {
+  
 })
+
+
 
 
 

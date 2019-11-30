@@ -23,15 +23,23 @@ Updated by KZH on November 13, 2019 at 8:15 PM
     </div>
     <!--This is the input form user will interact with-->
     <div class="form">
-      <form>
-          Horizontal Start #: (Must be smaller than Horizontal End #)<br>
-          <input type="text" id="starthorizontal"><br>
-          Horizontal End #:<br>
-          <input type="text" id="endhorizontal"><br>
-          Vertical Start #: (Must be smaller than Vertical End #)<br>
-          <input type="text" id="startvertical"><br>
-          Vertical End #:<br>
-          <input type="text" id="endvertical"><br><br>
+      <form id="inputform">
+        <p>
+          <label for="starthoriz">Horizontal Start #:</label>
+          <input type="number" id="starthorizontal"><br>
+        </p>
+        <p>
+          <label for="endhoriz">Horizontal End #:</label>
+          <input type="number" id="endhorizontal"><br>
+        </p>
+        <p>
+          <label for="startvert">Vertical Start #:</label>
+          <input type="number" id="startvertical"><br>
+        </p>
+        <p>
+          <label for="endvert">Vertical End #:</label>
+          <input type="number" id="endvertical"><br><br>
+        </p>
       </form>
       <button type="button" id="validate">Submit</button>
     </div>
