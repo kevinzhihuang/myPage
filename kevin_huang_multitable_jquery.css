@@ -17,26 +17,32 @@ h2 {
   font-style: italic;
 }
 
-/*Other Browsers to make the arrows on number input disappear*/
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+/*This starts the styling of the input form*/
+fieldset {
+  background-color: lightcyan;
 }
 
-/* Firefox */
-input[type=number] {
-  -moz-appearance:textfield;
-}
-/*This starts the styling of the input form*/
 input[type=text] { /*The styling of the input form which gives it a background color and other basic stylings*/
   box-sizing: border-box;
   width: 400px;
   padding: 10px;
-  margin: 8px 0;
+  margin: auto;
   font-size: 15px;
   border-radius: 5px;
   background-color: lightcyan;
+}
+
+input {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.error {
+  color: red;
+  padding: 15px;
+  font-weight: bold;
+  font-size: large;
 }
 
 input[type=text]:focus { /*Gives input boxes an outline when focused on it*/
