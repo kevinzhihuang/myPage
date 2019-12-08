@@ -172,7 +172,7 @@ input.error {
 .ui-slider-horizontal {
   background: cyan;
   height: 15px;
-  width: 200px;
+  width: auto;
 }
 
 /* Just the slider handle */
