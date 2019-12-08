@@ -35,7 +35,7 @@
         </div>
         <div class="col-md-3"></div>
         <div class="col-md-6">
-          <div class="highlight_centered">Enter four numbers (range -12 to 12) to generate a dynamic multiplication table.</div>
+          <div class="highlight_centered">Enter four numbers (range -50 to 50) to generate a dynamic multiplication table.</div>
         </div>
         <div class="col-md-3"></div>
       </div>
@@ -45,38 +45,31 @@
       <!-- form goes here, along with current multiplication table -->
       <div class="row">
         <div class="col-md-1"></div>
-
         <!-- FIRST COLUMN: USER INPUT -->
         <div class="col-md-5">
-          <!-- Form to take user input.
-          I used the following site for help with the form:
-          http://www.w3schools.com/html/html_forms.asp
-          I also used this stackoverflow post for the onsubmit:
-          https://stackoverflow.com/questions/13143932/submit-html-form-perform-javascript-function-alert-then-redirect
-          This link was helpful for centering the form using CSS:
-          https://stackoverflow.com/questions/9737394/html-how-to-center-align-a-form -->
+          <!--Form to take user input.-->
           <div class="highlight_centered_margins">
             <form id="mult_form" name="mult_form" method="GET">
               <div>
-                <label>Starting horizontal number: </label>
+                <label>Horizontal Start #: </label>
                 <input type="number" id="horiz_start" name="horiz_start" value="0" required>
                 <div id="slider_hor_start"></div>
               </div>
 
               <div>
-                <label>Ending horizontal number: </label>
+                <label>Horizontal End #: </label>
                 <input type="number" id="horiz_end" name="horiz_end" value="0" required>
                 <div id="slider_hor_end"></div>
               </div>
 
               <div>
-                <label>Starting vertical number: </label>
+                <label>Vertical Start #: </label>
                 <input type="number" id="vert_start" name="vert_start" value="0" required>
                 <div id="slider_vert_start"></div>
               </div>
 
               <div>
-                <label>Ending vertical number: </label>
+                <label>Vertical End #: </label>
                 <input type="number" id="vert_end" name="vert_end" value="0" required>
                 <div id="slider_vert_end"></div>
               </div>
@@ -107,8 +100,7 @@
 
         <!-- PAST MULTIPLICATION TABLES -->
         <div class="col-md-10">
-          <div class="highlight_centered">You may also save up to 24 multiplication tables.
-          They will appear below this line when the "Save Table" button is pressed.</div>
+          <div class="highlight_centered">You can only save up to 15 tables!</div>
 
           <br><br>              <!-- Adding line breaks to make the display nicer. -->
 
@@ -123,64 +115,26 @@
       </div>
 
       <br><br><br>               <!-- Adding line breaks to make the display nicer. -->
-
-      <!--  This div will have the footer (html/footer.html) loaded into it
-            by the JS at the bottom of the page. -->
-      <div class="col-md-4"></div>
-      <div class="col-md-4">
-        <div id="TheFooter" class="highlight_centered_small"></div>
-      </div>
-      <div class="col-md-4"></div>
-
-      <!-- Audio -->
-  <!--     <audio autoplay="true">
-        <source src="img/amclassical_jingle_bells.mp3" type="audio/mpeg">
-        <p>Your browser does not support the audio element.</p>
-      </audio> -->
-
-    </div>          <!-- This should be the end div of the main container. -->
-
-    <!--
-        These are moved to the bottom of the <body> tag to decrease website load time.
-        This stackoverflow post is helpful for this issue:
-        https://stackoverflow.com/questions/6625773/where-should-i-put-the-css-and-javascript-code-in-an-html-webpage
-        See Yahoo's best practice rules as well:
-        https://developer.yahoo.com/performance/rules.html#css_top=
-     -->
+    </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins). -->
     <script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-
     <!-- Latest compiled and minified JavaScript -->
     <script type='text/javascript' src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-
     <!-- jQuery Validation plugin -->
     <script type='text/javascript' src="https://cdn.jsdelivr.net/jquery.validation/1.14.0/jquery.validate.js"></script>
     <script type='text/javascript' src="https://cdn.jsdelivr.net/jquery.validation/1.14.0/additional-methods.js"></script>
-
     <!-- jQuery UI Slider and Tab Wigets -->
     <script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-
     <!-- JS file that handles the multiplication table and validate code -->
     <script type='text/javascript' src="kevin_huang_multitable_jquery_slider.js"></script>
-
-    <!-- Load the header/footer when the page is ready. Also load the validate() function -->
     <script>
-      /*  This code is from a Stackoverflow post about how to load a HTML document
-          into div in another HTML document.
-          I run this on every page I make so I can change 1 HTML file when I add assignments
-          vs changing 7+ HTML files.
-          From the following URLs:
-          https://learn.jquery.com/using-jquery-core/document-ready/
-          https://stackoverflow.com/questions/8988855/include-another-html-file-in-a-html-file
-      */
-      $( document ).ready(function() {
+      $( document ).ready(function() { //The checking if page is ready code
           slider();           // Runs the slider code.
           validate();         // Runs the validate code as soon as the body is ready.
           auto_submit();      // Tries to submit the form on page load
                               // Assuming the form is valid, it generates a table.
       });
     </script>
-
   </body>
 </html>
