@@ -165,7 +165,7 @@ input.error {
 
 /* Just the slider handle */
 .ui-slider-horizontal .ui-slider-handle {
-  background: yellow;
+  background: blue;
   border: none;
 }
 
@@ -177,7 +177,7 @@ input.error {
 
 /* Active tab styling */
 .tab.ui-state-active {
-  background: blue;
+  background: black;
   color: black;
 }
 
