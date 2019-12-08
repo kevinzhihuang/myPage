@@ -44,19 +44,12 @@ html {
 }
 
 input {
-  box-sizing: border-box;
-  width: 400px;
-  padding: 10px;
-  margin: auto;
-  font-size: 15px;
-  border-radius: 5px;
-  background-color: lightcyan;
-  /*color: black;
+  color: black;
   font-family: "Advent Pro";
   font-size: 70%;
   font-weight: 900;
   text-align: center;
-  width: 50px;*/
+  width: 50px;
 }
 
 label {
