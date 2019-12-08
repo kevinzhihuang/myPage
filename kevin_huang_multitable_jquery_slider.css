@@ -36,13 +36,12 @@ body {
       The color was found with a Google search for "black color code", and this site was helpful for confirming:
       http://www.rapidtables.com/web/color/RGB_Color.htm
   */
-  background-color: #000000;
+  background-color: white;
 
   /*
         This line came off of Stackoverflow. It works very well. See the first answer from Vashishtha Jogi.
         https://stackoverflow.com/questions/1150163/stretch-and-scale-a-css-image-in-the-background-with-css-only
    */
-  background-size: cover;
   margin: 0px;
   padding: 0px;
   height: 100%;
