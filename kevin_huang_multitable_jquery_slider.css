@@ -15,7 +15,8 @@ Updated by KZH on December 8, 2019 at 4:15 PM
 }
 
 body {
-  background-color: grey;
+  background-image: linear-gradient(lightgrey, skyblue);
+  min-height: 100%;
   margin: 0px;
   padding: 0px;
   height: 100%;
