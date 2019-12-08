@@ -1,0 +1,58 @@
+<!--
+91.61 GUI Programming I: Creating an Interactive Dynamic Table
+Kevin Z. Huang , kevin_huang2@student.uml.edu
+Copyright (c) 2019 by Kevin Z. Huang.
+Assignment to try out javascript and make an interactive Dynamic
+table
+Created November 10, 2019 at 5:02 PM
+Updated by KZH on November 13, 2019 at 8:15 PM
+-->
+<!DOCTYPE html>
+<html lang ="en">
+  <head>
+    <meta charset=utf-8 />
+    <title>Multiplication Table</title>
+    <link href ="kevin_huang_multitable_jquery_slider.css" rel ="stylesheet">
+  </head>
+  <div class="wrapper">
+    <div class="warning">
+      <h2> <!--This is warning for the user about what type of inputs to use-->
+        Please wait a few seconds for validation to load!<br>
+        Use numbers between -50 and 50!<br>
+      </h2>
+    </div>
+    <!--This is the input form user will interact with-->
+    <div class="form">
+      <form id="inputform">
+        <fieldset>
+          <p>
+            <label for="starthoriz">Horizontal Start #:</label>
+            <input type="text" id="starthorizontal" name="starthorizontal"><br>
+          </p>
+          <p>
+            <label for="endhoriz">Horizontal End #:</label>
+            <input type="text" id="endhorizontal" name="endhorizontal"><br>
+          </p>
+          <p>
+            <label for="startvert">Vertical Start #:</label>
+            <input type="text" id="startvertical" name="startvertical"><br>
+          </p>
+          <p>
+            <label for="endvert">Vertical End #:</label>
+            <input type="text" id="endvertical" name="endvertical"><br><br>
+          </p>
+        </fieldset>
+      </form>
+      <button type="button" id="validate" onclick="multiply()">Submit</button>
+    </div>
+    <!--Placeholder for when the multiplacation table will be made-->
+    <div class="table">
+      <table id="myTable">
+      </table>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.js"></script>
+    <script src="kevin_huang_multitable_jquery.js"></script>
+  </div>
+</html>
