@@ -171,10 +171,8 @@ input.error {
 /* Slider background color / settings */
 .ui-slider-horizontal {
   background: cyan;
-  margin-top: 15px;
-  margin-bottom: 15px;
   height: 15px;
-  width: 5px;
+  width: 200px;
 }
 
 /* Just the slider handle */
