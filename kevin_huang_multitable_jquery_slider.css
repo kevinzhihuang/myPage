@@ -157,21 +157,15 @@ input.error {
 
 /* Slider background color / settings */
 .ui-slider-horizontal {
-  background: grey;
+  background: cyan;
   margin-top: 15px;
   margin-bottom: 15px;
 }
 
 /* Just the slider handle */
 .ui-slider-horizontal .ui-slider-handle {
-  background: yellow;            
+  background: yellow;
   border: none;
-}
-
-/* Nav background */
-.ui-tabs-nav {
-  background: #b2b2b2;              /* Silver color */
-  color: white;
 }
 
 /* Tabs styling */
@@ -182,7 +176,7 @@ input.error {
 
 /* Active tab styling */
 .tab.ui-state-active {
-  background: #004c00;               /* Green */
+  background: blue;
   color: black;
 }
 
@@ -192,8 +186,8 @@ input.error {
 
 /* Assignment 8 title */
 .highlight_fun {
-  background-color: #FF0000;    /* Red */
-  color: #004c00;               /* Green */
+  background-color: blue;
+  color: green;
   font-family: "Sigmar One";
   font-size: 50%;
   padding-left: 5px;
@@ -242,14 +236,14 @@ h1.name {
   background-color: black;
 }
 
-/* Assignment 5 title */
+
 .highlight_red {
   background-color: black;
   color: red;
   font-family: "Righteous";
 }
 
-/* Assignment 7 title */
+
 .highlight_gold {
   background-color: #e5c100;    /* Gold color */
   color: #990000;               /* Dark red color */
