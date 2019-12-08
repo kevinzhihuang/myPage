@@ -61,7 +61,7 @@ input {
   font-size: 70%;
   font-weight: 900;
   text-align: center;
-  width: 50px;
+  width: 100px;
 }
 
 label {
@@ -173,6 +173,8 @@ input.error {
   background: cyan;
   margin-top: 15px;
   margin-bottom: 15px;
+  height: 15px;
+  width: 5px;
 }
 
 /* Just the slider handle */
