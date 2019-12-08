@@ -171,13 +171,16 @@ input.error {
 /* Slider background color / settings */
 .ui-slider-horizontal {
   background: cyan;
-  height: 15px;
-  width: auto;
+  height: 10px;
+  width: 200px;
+  align-self: center;
 }
 
 /* Just the slider handle */
 .ui-slider-horizontal .ui-slider-handle {
   background: skyblue;
+  height: auto;
+  width: auto;
   border: none;
 }
 
