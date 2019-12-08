@@ -14,31 +14,8 @@ Updated by KZH on December 8, 2019 at 4:15 PM
   padding: 0;
 }
 
-/*
-    I found this one this stackoverflow page;  it is used to make the "#About" link in the Nav Bar go all
-    the way to the top. I changed it to offset to 70px since that seems to be just enough for this fix to work.
-    https://stackoverflow.com/questions/10732690/offsetting-an-html-anchor-to-adjust-for-fixed-header
-*/
-a.anchor {
-  display: block;
-  position: relative;
-  top: -70px;
-  visibility: hidden;
-}
-
 body {
-  /*
-      Background image was found at the following URL (I did not create nor own this image):
-      http://desktop.freewallpaper4.me/view/original/2109/snowy-mountain-night.jpg
-      The color was found with a Google search for "black color code", and this site was helpful for confirming:
-      http://www.rapidtables.com/web/color/RGB_Color.htm
-  */
-  background-color: white;
-
-  /*
-        This line came off of Stackoverflow. It works very well. See the first answer from Vashishtha Jogi.
-        https://stackoverflow.com/questions/1150163/stretch-and-scale-a-css-image-in-the-background-with-css-only
-   */
+  background-color: grey;
   margin: 0px;
   padding: 0px;
   height: 100%;
@@ -46,9 +23,6 @@ body {
   font-family: "Advent Pro";
 }
 
-/*
-      Added padding / margin for better display.
-*/
 body > .container {
   padding: 65px 10px 0;
 }
@@ -63,23 +37,11 @@ html {
   width: 100%;
 }
 
-/*
-  This is to replace <center> tags so the site will validate. I was using <center> tags to make images and
-  text appear centered on mobile devices, since the bootstrap grids I setup for mobile make things
-  appear on separate lines.
-  This post explained how to do so:
-  https://stackoverflow.com/questions/7226056/equivalent-to-center-tag-in-css
-*/
 .center_text_images {
   margin: auto;
   text-align: center;
 }
 
-/* The following is for the table in assignment #6 */
-
-/*
-    Modifying forms so that input is visible.
-*/
 input {
   color: black;
   font-family: "Advent Pro";
@@ -89,11 +51,6 @@ input {
   width: 50px;
 }
 
-/*
-    This Stackoverflow post explained how to do this:
-    https://stackoverflow.com/questions/9686538/align-labels-in-form-next-to-input
-    See if there is a better way.
-*/
 label {
   display: inline-block;
   float: left;
@@ -102,11 +59,10 @@ label {
   font-weight: 900;
   margin-top: 6px;
   text-align: right;
-  width: 250px;           /* modified this */
+  width: 250px;
 }​
 
-/* Generate Table button
-   Not sure why but I needed both selectors for some reason.  */
+/* Generate Table button*/
 input[type=submit] {
   width: 150px;
 }
@@ -115,17 +71,6 @@ div form input.submit_button {
   width: 150px;
 }
 
-/*
-  w3schools is so helpful:
-  http://www.w3schools.com/css/css_table.asp
-  This was really helpful for centering the table. I had to use margin left / right
-  at auto, and width 100%. I'm not sure why but I had to use both the div and the
-  table. If I remove either then the table stops being centered. It also only stays
-  centered for up to 25 columns, after that it expands to the right. But I think that's
-  fine, otherwise the content would become very tiny.
-  https://stackoverflow.com/questions/301147/css-way-to-horizontally-align-table
-  https://stackoverflow.com/questions/9402856/how-to-put-table-in-the-center-of-the-page-using-css
-*/
 div#multiplication_table {
   /* Currently not used */
 }
@@ -140,7 +85,7 @@ tbody {
 
 /*    Style all rows and all columns this way using parent selectors      */
 tbody > tr > td {
-  background-color: #004c00;               /* Green */
+  background-color: #004c00;
   border: 3px solid black;
   color: white;
   height: 25px;
@@ -163,21 +108,16 @@ tbody > tr > td:first-child {
   color: white;
 }
 
-/* The very top left table spot should be blank.
-I was pretty confused how to do this, but after some Googling I found this post:
-https://stackoverflow.com/questions/7232813/css-selection-of-first-column-of-first-row-of-a-table-excluding-nested-tables
-For making it completely transparent W3Schools was helpful:
-http://www.w3schools.com/css/css_image_transparency.asp */
+/*Making top left box transparent*/
 tbody > tr:first-child > td:first-child {
-  background-color: #ffffff;    /* This is a white color, we don't care about it. */
+  background-color: #ffffff;
   border-top: none;             /* stop the border from appearing, so the spot in the table looks blank. */
   border-left: none;
   color: black;
   opacity: 0;
 }
 
-/* Warning messages that I generate, such as "swaping inputs" if someone enters
-   [5, 1] instead of [1,5]  */
+/* Warning messages that I generate*/
 #warning_msg {
   color: red;
   font-family: "Advent Pro";
@@ -187,7 +127,7 @@ tbody > tr:first-child > td:first-child {
 }
 
 
-/* Some CSS for the warning messages that show up. I wanted them to be separated nicely. */
+/* Some CSS for the warning messages that show up */
 .warning_class {
   padding: 5px;
 }
@@ -205,18 +145,10 @@ tbody > tr:first-child > td:first-child {
   text-align: center;
 }
 
-/*  When an input is invalid, the jQuery Validation Plugin adds the class "error"
-    to the input. So why not make it obvious to the user which inputs aren't valid
-    by making a red border around the input? As soon as the input is valid this will
-    disappear since the jQuery plugin wil remove the class "error".  */
+/*  Makes input box red  */
 input.error {
   border: 3px solid red;
 }
-
-
-/*******************************************************************************
- *  This section will be for Assignment 8.
- *******************************************************************************/
 
 /* Tabs background style */
 #tabs {
@@ -225,14 +157,14 @@ input.error {
 
 /* Slider background color / settings */
 .ui-slider-horizontal {
-  background: red;
+  background: grey;
   margin-top: 15px;
   margin-bottom: 15px;
 }
 
 /* Just the slider handle */
 .ui-slider-horizontal .ui-slider-handle {
-  background: #004c00;              /* Green */
+  background: yellow;            
   border: none;
 }
 
