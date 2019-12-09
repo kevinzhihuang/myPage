@@ -100,7 +100,7 @@ tbody {
 tbody > tr > td {
   background-color: #lightgrey;
   border: 3px solid black;
-  color: white;
+  color: black;
   height: 25px;
   font-family: "Advent Pro";
   font-size: 100%;
