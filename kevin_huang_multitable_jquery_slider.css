@@ -180,7 +180,7 @@ input.error {
 /* Just the slider handle */
 .ui-slider-horizontal .ui-slider-handle {
   background: skyblue;
-  height: 10px;
+  height: 30px;
   width: 10px;
   margin: auto;
   border: none;
