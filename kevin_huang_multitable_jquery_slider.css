@@ -111,13 +111,13 @@ tbody > tr > td {
 
 /* Style the very top row. */
 tbody > tr:first-child > td {
-  background-color: black;
+  background-color: grey;
   color: white;
 }
 
 /* Style the left most column. */
 tbody > tr > td:first-child {
-  background-color: black;
+  background-color: grey;
   color: white;
 }
 
