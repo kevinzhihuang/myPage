@@ -98,7 +98,7 @@ tbody {
 
 /*    Style all rows and all columns this way using parent selectors      */
 tbody > tr > td {
-  background-color: #004c00;
+  background-color: #lightgrey;
   border: 3px solid black;
   color: white;
   height: 25px;
@@ -111,13 +111,13 @@ tbody > tr > td {
 
 /* Style the very top row. */
 tbody > tr:first-child > td {
-  background-color: red;
+  background-color: black;
   color: white;
 }
 
 /* Style the left most column. */
 tbody > tr > td:first-child {
-  background-color: red;
+  background-color: black;
   color: white;
 }
 
@@ -253,7 +253,6 @@ h1.name {
 .highlight {
   background-color: black;
 }
-
 
 .highlight_red {
   background-color: black;
