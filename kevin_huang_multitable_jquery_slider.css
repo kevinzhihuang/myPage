@@ -99,7 +99,7 @@ tbody {
 /*    Style all rows and all columns this way using parent selectors      */
 tbody > tr > td {
   background-color: #lightgrey;
-  border: 3px solid white;
+  border: 3px solid green;
   color: red;
   height: 25px;
   font-family: "Advent Pro";
