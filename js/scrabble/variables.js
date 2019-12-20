@@ -1,58 +1,21 @@
 /*
-    File: ~/js/scrabble/variables.js
-    91.461 Assignment 9: Implementing a Bit of Scrabble with Drag-and-Drop
-    Jason Downing - student at UMass Lowell in 91.461 GUI Programming I
-    Contact: jdowning@cs.uml.edu or jason_downing@student.uml.edu
-    MIT Licensed - see http://opensource.org/licenses/MIT for details.
-    Anyone may freely use this code. Just don't sue me if it breaks stuff.
-    Created: Nov 24, 2015.
-    Last Updated: Dec 9, 6PM.
-    This JavaScript file is for the 9th assignment, "Scrabble".
-    This file contains a bunch of global variables for the Assignment 9, "Scrabble".
-    Globals are obviously not recommended but in this case it makes it way easier
-    to program the game board.
-*/
-
-
-/*
-    JavaScript array of objects for the amounts and value of each letter.
-    I didn't make this data structure, this was originally found on Piazza and made by Ramon Meza.
-    Also, I didn't feel like figuring out how to load a JSON file again so I did the easy way
-    and just made a pieces array with all the stuff I need. Obviously lazy but it works way easier SO WHY NOT.
-    Note that I modified this to include a "remaining" property as well, just like
-    Prof. Heines showed in class for his associative array.
+91.61 GUI Programming I: Implementing a Bit of Scrabble with Drag-and-Drop
+Kevin Z. Huang , kevin_huang2@student.uml.edu
+Copyright (c) 2019 by Kevin Z. Huang.
+Assignment to create a game of Scrabble
+Created December 14, 2019 at 5:02 PM
+Updated by KZH on December 20, 2019 at 1:13 AM
 */
 var pieces = [];
 
-// JavaScript array to keep track of the CURRENT game board. (the current word that is being created)
 // NOTE: "pieceX" means NO tile present on that drop zone.
 // Also note this is EMPTY until tiles are placed onto the game board.
-var game_board = [
-  // Example of what WOULD be in this array. An obj with "id" of the dropable spot and the tile that was dropped.
-  //{"id": "drop0",  "tile": "pieceX"},
-];
+var game_board = [];
 
 // JavaScript array to keep track of past words
-var complete_words = [
-  /*
-      Example of what this array with look like:
-      [
-        // Each word will be an array of objects
-        //               "H"                             "E"                              etc
-        [{ {"id": "row7_col7",  "letter": "H"}, {"id": "row7_col8",  "letter": "E"}, ...}],
-        // This could be the second word that is saved
-        // It would also have the id of dropped tile, plus which letter it is.
-        [ {H}, {E} , {L}, {L}, {O}   ]
-        It could be longer as the game goes on. It could be as long as the board supports even.
-        Each dropID would be used to generate valid positions for starting a new word.
-        Words must be formed at RIGHT angles.
-        Also, the array should be used to get the letters of saved letters.
-      ]
-  */
-];
+var complete_words = [];
 
 // JavaScript array of objects to determine what letter each piece is.
-// This gets configured by load_scrabble_pieces()
 var game_tiles = [
   {"id": "piece0", "letter": "A"},
   {"id": "piece1", "letter": "B"},
@@ -67,21 +30,15 @@ var game_tiles = [
 var left_right = false;
 
 // For detecting multiple words played
-// TODO: is this being used?
 var number_of_words = 0;
 
 // Used for getting the original position of a draggable object.
-// As seen here: https://stackoverflow.com/questions/12350259/original-position-of-a-draggable-in-jquery-ui
 var startPos;
 
-// Save the score of all the words saved. Only updates when a word is saved, which allows
-// the scoring function (find_word()) to work properly.
+// Save the score of all the words saved.
 var word_score = 0;
 
 // First letter for 2nd and on words played.
 var first_letter = "";
 
-// Keep track of the letters of used words. This is handy for tracking adding an "S" to
-// a currently created word "hope" - if we had an S, then we have 5 letters. If we remove an
-// S, we have 4 letters that need to be removed.
 var used_letters = 0;

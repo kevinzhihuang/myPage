@@ -289,7 +289,7 @@ function load_droppable_targets() {
           if (droppableID != star_spot) {
             /* The only valid place is the star, row7_col7 */
             $("#messages").html("<br><div class='highlight_centered_error'> \
-            Please start at the star in the middle of the game board.</div>");
+            Please start at the first slot on the left the game board.</div>");
 
             // Force the draggable to revert. Idea from:
             // https://stackoverflow.com/questions/6071409/draggable-revert-if-outside-this-div-and-inside-of-other-draggables-using-both

@@ -1,24 +1,11 @@
 /*
-    File: ~/js/scrabble_v2.js
-    91.461 Assignment 9: Implementing a Bit of Scrabble with Drag-and-Drop
-    Jason Downing - student at UMass Lowell in 91.461 GUI Programming I
-    Contact: jdowning@cs.uml.edu or jason_downing@student.uml.edu
-    MIT Licensed - see http://opensource.org/licenses/MIT for details.
-    Anyone may freely use this code. Just don't sue me if it breaks stuff.
-    Created: Nov 24, 2015.
-    Last Updated: Dec 8, 9PM.
-    This JavaScript file is for the 9th assignment, "Scrabble".
-    This file was the original file I used for the Scrabble game.
-    All this file will do in the future is run the document.ready function,
-    which runs on the first page load after the DOM is loaded.
+91.61 GUI Programming I: Implementing a Bit of Scrabble with Drag-and-Drop
+Kevin Z. Huang , kevin_huang2@student.uml.edu
+Copyright (c) 2019 by Kevin Z. Huang.
+Assignment to create a game of Scrabble
+Created December 14, 2019 at 5:02 PM
+Updated by KZH on December 20, 2019 at 1:13 AM
 */
-
-
-/**
- *      This loads up the inital game board and makes
- *      the game playable on the first load of the web page.
- *
- **/
 $( document ).ready(function() {
   load_pieces_array();        // Load up the default pieces array.
   load_scrabble_pieces();     // Load up the 7 random Scrabble pieces.

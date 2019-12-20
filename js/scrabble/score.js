@@ -1,23 +1,11 @@
 /*
-    File: ~/js/scrabble/score.js
-    91.461 Assignment 9: Implementing a Bit of Scrabble with Drag-and-Drop
-    Jason Downing - student at UMass Lowell in 91.461 GUI Programming I
-    Contact: jdowning@cs.uml.edu or jason_downing@student.uml.edu
-    MIT Licensed - see http://opensource.org/licenses/MIT for details.
-    Anyone may freely use this code. Just don't sue me if it breaks stuff.
-    Created: Nov 24, 2015.
-    Last Updated: Dec 9, 5PM.
-    This JavaScript file is for the 9th assignment, "Scrabble".
-    This file contains all of the scoring logic for the Scrabble board game.
+91.61 GUI Programming I: Implementing a Bit of Scrabble with Drag-and-Drop
+Kevin Z. Huang , kevin_huang2@student.uml.edu
+Copyright (c) 2019 by Kevin Z. Huang.
+Assignment to create a game of Scrabble
+Created December 14, 2019 at 5:02 PM
+Updated by KZH on December 20, 2019 at 1:13 AM
 */
-
-
-/**
- *    When called, this function determine what the current word is.
- *    It also determines what the score is for the word that it finds.
- *    Both the word and score are printed to HTML.
- *
- */
 function find_word(read_left) {
   var word = "";                              // The current word.
   var current_score = 0;                      // Current Score always starts at 0.
@@ -27,7 +15,7 @@ function find_word(read_left) {
 
   // The word is now blank.
   $("#word").html("____");
-  $("#score").html(saved_score);    // Technically this starts at 0, then adds up to whatever the saved score is.
+  $("#score").html(saved_score);
 
   // Go through the game board and generate a possible word.
   for(var i = 0; i < board_length; i++) {
@@ -35,15 +23,7 @@ function find_word(read_left) {
     current_score += find_score(game_board[i].tile);
   }
 
-  // Factor in the doubling of certain tiles. Since the should_double() function returns 0 or 1,
-  // this is easy to account for. If it's 0, 0 is added to the score. If it's 1, the score is doubled.
   current_score += (current_score * should_double_triple_word());
-
-  // Add the current word's score (current_score) to the total score (saved_score)
-  // This little trick prevents the bug where playing multiple words and placing a tile
-  // on a "double word" or "triple word" square will double or triple the TOTAL SCORE.
-  // Obviously this can lead to 9000+ scores with just 6 or 7 words. Very bad.
-  // By keeping track of current score and saved score, we can print this easily.
   saved_score += current_score;
 
   // Put the score of the dropped tile into the HTML doc.
@@ -55,19 +35,10 @@ function find_word(read_left) {
     return;
   }
 
-  // Otherwise the word is now blank.
+  // Otherwise blank
   $("#word").html("____");
 }
 
-
-/**
- *    This function determines whether to double or triple the word score.
- *    Returns:
- *    0 = neither
- *    1 = double
- *    2 = triple
- *
- */
 function should_double_triple_word() {
   // Get board array length. This will be useful for our checks next.
   var gameboard_length = game_board.length;
@@ -91,21 +62,11 @@ function should_double_triple_word() {
   return 0;
 }
 
-
-/**
- *    This function, given a letter, will return the letter's score based on
- *    the value in the pieces.json file.
- *
- *    parameters: an ID of a tile
- *       returns: integer score, such as "1" or "2". On error, returns "-1".
- */
 function find_score(given_id) {
   // First figure out which letter we have.
   var letter = find_letter(given_id);
   var score = 0;
 
-  // Since each "letter" is actually a spot in an array in the pieces.json file,
-  // we gotta look at each object in the array before we can look at stuff.
   for(var i = 0; i < 27; i++) {
     // Get an object to look at.
     var obj = pieces[i];
@@ -115,7 +76,6 @@ function find_score(given_id) {
       score = obj.value;
 
       // Need to determine if this piece is a DOUBLE or not.
-      // Droppable zones 6 & 8 are DOUBLE letter scores.
       var extra = score * should_double_triple_letter(given_id);
       score = score + extra;
 
@@ -123,19 +83,10 @@ function find_score(given_id) {
     }
   }
 
-  // If we get here, then we weren't given a nice valid letter. >:(
+  // Badness
   return -1;
 }
 
-
-/**
- *    Given a tile ID, figures out which dropID this is and whether to double the
- *    letter score or not.
- *    Returns:
- *    0 = neither
- *    1 = double
- *    2 = triple
- */
 function should_double_triple_letter(given_id) {
   var space;
 
@@ -144,11 +95,6 @@ function should_double_triple_letter(given_id) {
       space = "#" + game_board[i].id;
     }
   }
-
-  /*
-      Using "hasClass" to detect if this is a double / triple space.
-  */
-
   if ( $(space).hasClass("double_letter") == true ) {
     // Sweet! Double the letter's value!
     return 1;
