@@ -1,51 +1,13 @@
-/*
-    File: ~/css/scrabble_v2.css
-    91.461 Assignment 9: Implementing a Bit of Scrabble with Drag-and-Drop
-    Jason Downing - student at UMass Lowell in 91.461 GUI Programming I
-    Contact: jdowning@cs.uml.edu or jason_downing@student.uml.edu
-    MIT Licensed - see http://opensource.org/licenses/MIT for details.
-    Anyone may freely use this code. Just don't sue me if it breaks stuff.
-    Created: Nov 24, 2015.
-    Last Updated: Dec 9, 5PM.
-    This CSS file is for the 9th assignment, "Scrabble".
-    Mainly because my Index got way too large.
-*/
-
-
 /* CSS Reset */
 * {
   margin: 0;
   padding: 0;
 }
-
-/*
-    I found this one this stackoverflow page;  it is used to make the "#About" link in the Nav Bar go all
-    the way to the top. I changed it to offset to 70px since that seems to be just enough for this fix to work.
-    https://stackoverflow.com/questions/10732690/offsetting-an-html-anchor-to-adjust-for-fixed-header
-*/
-a.anchor {
-  display: block;
-  position: relative;
-  top: -70px;
-  visibility: hidden;
-}
-
 body {
-  /*
-      Background image was found at the following URL (I did not create nor own this image):
-      http://desktop.freewallpaper4.me/view/original/2109/snowy-mountain-night.jpg
-      The color was found with a Google search for "black color code", and this site was helpful for confirming:
-      http://www.rapidtables.com/web/color/RGB_Color.htm
-  */
   background-color: #000000;
   background-image: url('../img/snowy-night.jpg');
   background-position: center;
   background-repeat: no-repeat;
-
-  /*
-        This line came off of Stackoverflow. It works very well. See the first answer from Vashishtha Jogi.
-        https://stackoverflow.com/questions/1150163/stretch-and-scale-a-css-image-in-the-background-with-css-only
-   */
   background-size: cover;
   margin: 0px;
   padding: 0px;
@@ -71,21 +33,11 @@ html {
   width: 100%;
 }
 
-/*
-  This is to replace <center> tags so the site will validate. I was using <center> tags to make images and
-  text appear centered on mobile devices, since the bootstrap grids I setup for mobile make things
-  appear on separate lines.
-  This post explained how to do so:
-  https://stackoverflow.com/questions/7226056/equivalent-to-center-tag-in-css
-*/
 .center_text_images {
   margin: auto;
   text-align: center;
 }
 
-/*  For the rules page.
-    URL: https://stackoverflow.com/questions/1461015/ul-dont-stay-within-their-containing-divs
-*/
 ul {
   list-style-position: inside;
   text-align: left;
@@ -93,7 +45,6 @@ ul {
   padding-right: 25px;
 }
 
-/* Same as above for ordered lists. */
 ol {
   list-style-position: inside;
   text-align: left;
@@ -117,8 +68,6 @@ ol {
   text-decoration: underline;
 }
 
-/*  From this SO post, although I modified it:
-    https://stackoverflow.com/questions/1571648/html-tab-space-instead-of-multiple-non-breaking-spaces-nbsp */
 .basic_tab {
   padding-top: 1em;
   padding-left: 1em;
@@ -135,10 +84,6 @@ ol {
   text-align: center;
 }
 
-/*
-    To right align a table, see this amazing Stackoverflow post!
-    URL: https://stackoverflow.com/questions/301147/css-way-to-horizontally-align-table
-*/
 table {
   border: solid 5px black;
   margin-left: auto;
