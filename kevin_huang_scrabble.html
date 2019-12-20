@@ -5,19 +5,11 @@
 
   <!--  Configuration -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
-  <!--  Custom Title Bar -->
   <title>Scrabble</title>
-
-  <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
   integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-  <!-- Optional theme -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
   integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-  <!--  CSS file to override stuff, different file so I can modify stuff and rewrite the CSS. -->
   <link rel="stylesheet" href="kevin_huang_scrabble.css">
 
 </head>
@@ -26,17 +18,17 @@
   <!-- First row - the Scrabble game board -->
   <div class="row-fluid">
 
-    <div class="col-sm-14 col-md-5 col-lg-7">
+    <div class="col-sm-12 col-md-5 col-lg-7">
 
       <div class="center_text_images">
 
         <h1 class="name">
-          <span class="highlight_fun">SCRABBLE v2.8.1</span>
+          <span class="highlight_fun">SCRABBLE</span>
         </h1>
 
         <br>
 
-        <div class="col-sm-14 col-md-14 col-lg-14">
+        <div class="col-sm-12 col-md-12 col-lg-12">
           <div class="highlight_centered">
             Word: <span id="word">____</span>
             <div class="divider"></div>
@@ -50,7 +42,7 @@
                 Reset tiles: should wipe the board for a new game.
                 possibly think about adding more rows for Scrabble. (non-trivial)
         -->
-        <div class="col-sm-8 col-md-14 col-lg-14">
+        <div class="col-sm-8 col-md-12 col-lg-12">
           <!--  Add some vertical spacing between the word/score and the two submit buttons
                 on medium / large devices. -->
           <div class="space_top"></div>
@@ -66,12 +58,12 @@
         </div>
 
         <!-- Error / Success messages appear in this div. -->
-        <div class="col-sm-6 col-md-14 col-lg-14">
+        <div class="col-sm-6 col-md-12 col-lg-12">
           <div id="messages"></div>
         </div>
 
         <!-- Letters Remaining Table -->
-        <div class="col-sm-7 col-md-14 col-lg-14">
+        <div class="col-sm-7 col-md-12 col-lg-12">
           <!--
                 Table to show the letters remaining in the "Bag" of tiles
                 Each row is 9 columns long.
@@ -126,7 +118,7 @@
     </div>
 
     <!-- Scrabble board / Rack are in this column. -->
-    <div class="col-sm-14 col-md-9 col-lg-7">
+    <div class="col-sm-12 col-md-9 col-lg-7">
       <br><br>
       <!--
           Scrabble Game table.
