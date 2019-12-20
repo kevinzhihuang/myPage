@@ -4,11 +4,7 @@
   padding: 0;
 }
 body {
-  background-color: #000000;
-  background-image: url('../img/snowy-night.jpg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-color: grey;
   margin: 0px;
   padding: 0px;
   height: 100%;
@@ -76,12 +72,13 @@ ol {
 
 /* Get new tile space CSS */
 #get_new_tile {
-  background-color: red;
+  background-color: black;
   color: white;
   font-family: "Ubuntu";
   font-size: 150%;
   font-weight: 900;
   text-align: center;
+  border-radius: 10px;
 }
 
 table {
@@ -118,9 +115,6 @@ td.larger_td {
 
 /* Special spaces text */
 .cell_style {
-  /*  This part is so the text appears behind the tiles.
-      Found at this stackoverflow post: https://stackoverflow.com/questions/19561585/how-to-make-div-go-behind-another-div
-  */
   display: block;
   position: relative;
   z-index: 0;
@@ -131,20 +125,6 @@ td.larger_td {
   font-weight: bold;
   text-align: center;
 }
-
-/*
-      Note that I made the "special tile" lettering appear as background images.
-      If I tried doing plain old text, it LOOKED fine, until I tried dropping a
-      tile onto a special tile. Then the tile would appear above the tile which
-      is not what I wanted. The current behavior is much nicer, the tile appears
-      over the droppable space, and no letters appear when this happens.
-      I created these four images (double / triple ones) myself using GIMP.
-      They are just 50px by 50px images with a colored background layer and
-      a text field. The original template can be found in the /img/ folder as
-      a .xcf file, "special_tile.xcf". You may edit this if you dislike my colors
-      but you'll need to replace all the double / triple images if you do so, or
-      copy my images if you just want to use this code.
-*/
 
 /* Double / Triple letter CSS */
 .double_letter {
@@ -168,18 +148,22 @@ td.larger_td {
   background: url("img/scrabble/triple_word.png");
 }
 
-/* Need to figure out what this is for. */
 .resize_board {
   height: 125px;
   width: auto;
 }
 
 .pieces {
-  position: absolute;   /* Try absolute or relative and see what works. */
+  position: absolute;
   height: 40px;
   width: 40px;
-  z-index: 9999;           /*  THIS MUST BE LOWER THAN THE TARGET. PIECES IS DRAGGABLE, DROPPABLE TABLE IS THE TARGET.
-                            URL FOR DETAILS: https://stackoverflow.com/questions/15712011/why-does-drag-go-behind-target-div */
+  z-index: 9999;
+}
+
+.highlight_centered {
+  font-family: "Arial";
+  color: white;
+  padding: 20px;
 }
 
 /* For messages to user on the right side of the page. */
@@ -197,17 +181,6 @@ td.larger_td {
   background-color: black;
   border: 1px solid green;
   color: green;
-  font-family: "Ubuntu";
-  font-size: 150%;
-  font-weight: 900;
-  text-align: center;
-}
-
-/* Error version of the above message. */
-.highlight_centered_error {
-  background-color: black;
-  border: 1px solid red;
-  color: red;
   font-family: "Ubuntu";
   font-size: 150%;
   font-weight: 900;
@@ -235,32 +208,19 @@ button {
   width: 120px;
 }
 
-/**
- *    Handy class from this Stackoverflow post (ignore the tile):
- *    https://stackoverflow.com/questions/5119711/whats-the-easiest-way-to-put-space-between-2-side-by-side-buttons-in-asp-net
- */
 .divider {
   width: 15px;
   height: auto;
   display: inline-block;
 }
 
-/**
- *    Another useful class for dividing vertical elements.
- */
 .space_top {
   margin-top: 20px;
 }
 
-/*
-  This chunk contains all the highlight / text related CSS.
-  Mostly center / left / right alignment and changing the color / font of text.
-*/
-
 /* Assignment title */
 .highlight_fun {
-  background-color: #FF0000;    /* Red */
-  color: #004c00;               /* Green */
+  color: white;
   font-family: "Sigmar One";
   font-size: 40%;
   padding-left: 5px;
