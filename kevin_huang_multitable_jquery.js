@@ -1,9 +1,9 @@
 $(document).ready(function() {
   jQuery.validator.addMethod('greaterThan', function (value, element, param) {
-        return this.optional(element) || parseInt(value) <= parseInt($(param).val());
+        return this.optional(element) || parseInt(value) < parseInt($(param).val());
     }, 'Invalid value');
   jQuery.validator.addMethod('lessThan', function (value, element, param) {
-        return this.optional(element) || parseInt(value) >= parseInt($(param).val());
+        return this.optional(element) || parseInt(value) > parseInt($(param).val());
     }, 'Invalid value');
   alert('Validation has loaded! Thank you for waiting.')
   $('#inputform').validate({
@@ -81,9 +81,10 @@ function multiply() {
 
   //The error checker to check if start values were bigger than last values
   //and checks if there was a return value of NaN meaning paseInt took in a char
-  if ((h_first > h_last) || (v_first > v_last) || Number.isNaN(h_first) || Number.isNaN(h_last) || Number.isNaN(v_first) || Number.isNaN(v_last))
+  if ((h_first >= h_last) || (v_first >= v_last) || Number.isNaN(h_first) || Number.isNaN(h_last) || Number.isNaN(v_first) || Number.isNaN(v_last))
   {
     alert("Invalid Input! Please try Again.");
+    return;
   }
 
   //Row controller/incrementer

@@ -1,0 +1,144 @@
+<!--
+91.61 GUI Programming I: Creating an Interactive Dynamic Table
+Kevin Z. Huang , kevin_huang2@student.uml.edu
+Copyright (c) 2019 by Kevin Z. Huang.
+Assignment to try out javascript and make an interactive Dynamic
+table
+Created December 6, 2019 at 5:02 PM
+Updated by KZH on December 8, 2019 at 4:15 PM
+-->
+
+<!--Inspiration was taken from examples provided in professor's piazza posts
+and I attempted to create my own versions of shown examples-->
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <!-- Configuration -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <title>Multiplication Table Sliders</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+    integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- jQuery UI Theme -->
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/dark-hive/jquery-ui.min.css">
+
+    <!-- CSS file to override stuff -->
+    <link rel="stylesheet" href="kevin_huang_multitable_jquery_slider.css">
+  </head>
+  <body>
+    <div class="container-fluid">
+      <!-- First row - Assignment description -->
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+          <div class="highlight_centered">Enter four numbers (range -50 to 50) to generate a dynamic multiplication table.</div>
+        </div>
+        <div class="col-md-3"></div>
+      </div>
+
+      <br>
+
+      <!-- form goes here, along with current multiplication table -->
+      <div class="row">
+        <!-- FIRST COLUMN: USER INPUT -->
+        <div class="col-md-4">
+          <!--Form to take user input.-->
+          <div class="highlight_centered_margins">
+            <form id="mult_form" name="mult_form" method="GET">
+              <div>
+                <label>Horizontal Start #: </label>
+                <input type="number" id="horiz_start" name="horiz_start" value="0" required>
+                <div id="slider_hor_start"></div>
+              </div>
+
+              <div>
+                <label>Horizontal End #: </label>
+                <input type="number" id="horiz_end" name="horiz_end" value="0" required>
+                <div id="slider_hor_end"></div>
+              </div>
+
+              <div>
+                <label>Vertical Start #: </label>
+                <input type="number" id="vert_start" name="vert_start" value="0" required>
+                <div id="slider_vert_start"></div>
+              </div>
+
+              <div>
+                <label>Vertical End #: </label>
+                <input type="number" id="vert_end" name="vert_end" value="0" required>
+                <div id="slider_vert_end"></div>
+              </div>
+
+              <!-- onClick now saves the current multiplication tab into a new tab -->
+              <input id="button_submit" class="submit_button" type="submit" onClick="save_tab();" value="Save Table">
+            </form>
+
+            <!-- Error messages will appear here instead of in a popup. -->
+            <div id="warning_msg"></div>
+
+          </div>
+        </div>
+
+        <!-- SECOND COLUMN: CURRENT MULTIPLICATION TABLE -->
+        <div class="col-md-6">
+          <!-- The CURRENT multiplication table will appear in this div -->
+          <div id="multiplication_table"></div>
+        </div>
+
+        <div class="col-md-2"></div>
+      </div>
+
+      <br><br>              <!-- Adding line breaks to make the display nicer. -->
+
+      <div class="row">
+        <div class="col-md-1"></div>
+
+        <!-- PAST MULTIPLICATION TABLES -->
+        <div class="col-md-10">
+          <div class="highlight_centered">You can only save up to 15 tables!
+          They will show up below this message.</div>
+
+          <br><br>              <!-- Adding line breaks to make the display nicer. -->
+
+          <!-- Old Tables will be saved here -->
+          <div id="tabs">
+            <ul>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-1"></div>
+      </div>
+
+      <br><br><br>               <!-- Adding line breaks to make the display nicer. -->
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins). -->
+    <script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script type='text/javascript' src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <!-- jQuery Validation plugin -->
+    <script type='text/javascript' src="https://cdn.jsdelivr.net/jquery.validation/1.14.0/jquery.validate.js"></script>
+    <script type='text/javascript' src="https://cdn.jsdelivr.net/jquery.validation/1.14.0/additional-methods.js"></script>
+    <!-- jQuery UI Slider and Tab Wigets -->
+    <script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <!-- JS file that handles the multiplication table and validate code -->
+    <script type='text/javascript' src="kevin_huang_multitable_jquery_slider.js"></script>
+    <script>
+      $( document ).ready(function() { //The checking if page is ready code
+          slider();           // Runs the slider code.
+          validate();         // Runs the validate code as soon as the body is ready.
+          auto_submit();      // Tries to submit the form on page load
+                              // Assuming the form is valid, it generates a table.
+      });
+    </script>
+  </body>
+</html>
