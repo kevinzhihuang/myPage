@@ -9,12 +9,9 @@ body {
   padding: 0px;
   height: 100%;
   width: 100%;
-  font-family: "Advent Pro";
+  font-family: "Arial";
 }
 
-/*
-      Added padding / margin for better display.
-*/
 body > .container {
   padding: 65px 10px 0;
 }
@@ -93,13 +90,12 @@ td {
   border: solid 2px white;
   height: 50px;
   width: 50px;
-  z-index: 3;   /*  THIS IS INCREDIBLY IMPORTANT. SEE THIS URL FOR DETAILS:
-                    https://stackoverflow.com/questions/15712011/why-does-drag-go-behind-target-div */
+  z-index: 3;
 }
 
 /* For the "Letters Remaining" Table */
 table#letters_remain {
-  border: solid 5px red;
+  border: solid 2px blue;
 }
 
 /* For the "Letters Remaining" section */
@@ -108,7 +104,7 @@ td.larger_td {
   color: white;
   font-size: 150%;
   text-align: center;      /* Center text */
-  border: solid 2px red;
+  border: solid 2px blue;
   height: 50px;
   width: 50px;
 }
@@ -164,6 +160,8 @@ td.larger_td {
   font-family: "Arial";
   color: white;
   padding: 20px;
+  background-color: black;
+  border-radius: 20px;
 }
 
 /* For messages to user on the right side of the page. */
@@ -179,12 +177,12 @@ td.larger_td {
 /* Success version of the error message. */
 .highlight_centered_success {
   background-color: black;
-  border: 1px solid green;
-  color: green;
+  color: white;
   font-family: "Ubuntu";
   font-size: 150%;
   font-weight: 900;
   text-align: center;
+  border-radius: 20px;
 }
 
 /* Success button, let's the user save the word and play another one. */
