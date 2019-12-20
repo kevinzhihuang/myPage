@@ -160,8 +160,8 @@ function load_droppable_targets() {
       if (duplicate == true) {
           $("#messages").html("<br><div class='highlight_centered_error'> \
           Sorry, tiles that are already placed on the board cannot be moved. \
-          You will need to return the tile to the rack to move it. \
-          You are also allowed to swap two tiles by dropping a new tile on top of a \
+          Return the tile to the rack to move it. \
+          Swap two tiles by dropping a new tile on top of a \
           currently played tile.</div>");
 
           ui.draggable.draggable('option', 'revert', true);
@@ -258,7 +258,7 @@ function load_droppable_targets() {
           else {
             // Tell the user what the error was.
             $("#messages").html("<br><div class='highlight_centered_error'> \
-            Sorry, diagonals are not allowed once at least one tile has been placed.</div>");
+            Sorry, diagonals are not allowed.</div>");
 
             // Force the draggable to revert. Idea from:
             // https://stackoverflow.com/questions/6071409/draggable-revert-if-outside-this-div-and-inside-of-other-draggables-using-both
@@ -294,7 +294,7 @@ function load_droppable_targets() {
             else {                // Not allowed.
               // Tell the user what the error was.
               $("#messages").html("<br><div class='highlight_centered_error'> \
-              Sorry, only left and right placements are allowed when 2 or more tiles are played.</div>");
+              Sorry, only left and right placements are allowed.</div>");
 
               ui.draggable.draggable('option', 'revert', true);
               return;
@@ -320,7 +320,7 @@ function load_droppable_targets() {
             }
             else {
               $("#messages").html("<br><div class='highlight_centered_error'> \
-              Sorry, only up and down positions are allowed when 2 or more tiles are played.</div>");
+              Sorry, only up and down positions are allowed.</div>");
 
 
               ui.draggable.draggable('option', 'revert', true);
@@ -637,7 +637,7 @@ function load_droppable_targets() {
         }
         else {
           // Push to the front of the game board array.
-          game_board.unshift(obj);    
+          game_board.unshift(obj);
         }
 
       }

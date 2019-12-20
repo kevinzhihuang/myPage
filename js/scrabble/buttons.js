@@ -21,7 +21,7 @@ function submit_word() {
   if ( 1 ) {
     $("#messages").html("<br><div class='highlight_centered_success'> \
     Nice job! \"" + word + "\" is considered a word by the game's dictionary!<br><br> \
-    <button class='smaller_button' onclick='confirm_save_word();'>Save Word & Play Again.</button><br><br></div>");
+    <button class='smaller_button' onclick='confirm_save_word();'>Save & Play Again.</button><br><br></div>");
     return 1;
   }
   else {
