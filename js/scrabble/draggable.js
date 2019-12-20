@@ -1,25 +1,11 @@
 /*
-    File: ~/js/scrabble/draggable.js
-    91.461 Assignment 9: Implementing a Bit of Scrabble with Drag-and-Drop
-    Jason Downing - student at UMass Lowell in 91.461 GUI Programming I
-    Contact: jdowning@cs.uml.edu or jason_downing@student.uml.edu
-    MIT Licensed - see http://opensource.org/licenses/MIT for details.
-    Anyone may freely use this code. Just don't sue me if it breaks stuff.
-    Created: Nov 24, 2015.
-    Last Updated: Dec 8, 9PM.
-    This JavaScript file is for the 9th assignment, "Scrabble".
-    This file controls the draggable logic.
+91.61 GUI Programming I: Implementing a Bit of Scrabble with Drag-and-Drop
+Kevin Z. Huang , kevin_huang2@student.uml.edu
+Copyright (c) 2019 by Kevin Z. Huang.
+Assignment to create a game of Scrabble
+Created December 14, 2019 at 5:02 PM
+Updated by KZH on December 20, 2019 at 1:13 AM
 */
-
-
-/**
- *    This function loads up the scrabble pieces onto the rack.
- *    It also makes each of them draggable and sets various properties, including
- *    the images location and class / ID.
- *
- *    the tile IDs are in the form "piece#", where # is between 1 and 7.
- *
- */
 function load_scrabble_pieces() {
   var base_url = "img/scrabble/Scrabble_Tile_";       // base URL of the image
   var random_letter = "";                             // Random letter for the tile
@@ -38,26 +24,14 @@ function load_scrabble_pieces() {
     piece_ID = "#piece" + i;
     game_tiles[i].letter = random_letter;
 
-    // Reposition the tile on top of the rack, nicely in a row with the other tiles.
 
-    // We first get the rack's location on the screen. Idea from a Stackoverflow post,
-    // URL: https://stackoverflow.com/questions/885144/how-to-get-current-position-of-an-image-in-jquery
     pos = $("#the_rack").position();
 
-    // Now figure out where to reposition the board piece.
-    img_left = pos.left + 30 + (50 * i);      // This controls left to right placement.
-    img_top = pos.top + 30;                   // This controls top to bottom placement.
+    // Now figure out where to reposition
+    img_left = pos.left + 30 + (50 * i);
+    img_top = pos.top + 30;
 
-    /* Load onto the page and make draggable.
-       The height / width get set using these tricks:
-       https://stackoverflow.com/questions/10863658/load-image-with-jquery-and-append-it-to-the-dom
-       https://stackoverflow.com/questions/2183863/how-to-set-height-width-to-image-using-jquery
-       https://stackoverflow.com/questions/9704087/jquery-add-image-at-specific-co-ordinates
-       The relative stuff came from this w3schools page. I realized I could set the top and left
-       relative to the rack (and the board for the droppable targets), which makes things wayyyyy
-       easier. URL: http://www.w3schools.com/css/css_positioning.asp
-    */
-    // Add the piece to the screen
+
     $("#rack").append(piece);
 
     // Move the piece relative to where the rack is located on the screen.
@@ -68,12 +42,9 @@ function load_scrabble_pieces() {
       appendTo: scrabble_board,
       revert: "invalid",            // This is key. Only the rack and game board are considered valid!
       start: function(ev, ui) {
-        // Save original position. (used for swapping tiles)
         startPos = ui.helper.position();  // startPos is a global variable found in variables.js
       },
       stop: function() {
-        // If an invalid event is found, this will return the draggable object to its
-        // default "invalid" option. From this Stackoverflow post (also used in the droppable part.)
         $(this).draggable('option','revert','invalid');
       }
     });

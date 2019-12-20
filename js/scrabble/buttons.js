@@ -1,59 +1,24 @@
 /*
-    File: ~/js/scrabble/buttons.js
-    91.461 Assignment 9: Implementing a Bit of Scrabble with Drag-and-Drop
-    Jason Downing - student at UMass Lowell in 91.461 GUI Programming I
-    Contact: jdowning@cs.uml.edu or jason_downing@student.uml.edu
-    MIT Licensed - see http://opensource.org/licenses/MIT for details.
-    Anyone may freely use this code. Just don't sue me if it breaks stuff.
-    Created: Nov 24, 2015.
-    Last Updated: Dec 8, 9PM.
-    This JavaScript file is for the 9th assignment, "Scrabble".
-    This file contains functions that run when one of the three buttons are pressed.
-    These include:
-    Submit word -> runs check word function that sees if the word is valid;
-                     NO ->  it prints an error message to the screen.
-                    YES ->  it prints a success message and adds another button
-                            for saving the word and playing another.
-    Recall tiles -> runs a function to return all currently played tiles to the rack.
-                    SAVED WORDS ARE NOT RETURNED, SEE "RESET BOARD" BUTTON
-    Reset Board -> runs a function to confirm if the user wants to reset the board.
-                     NO ->  cancels the reset so nothing happens.
-                    YES ->  resets the entire game board, returning all tiles to the
-                            "bag" and resetting the score / word.
+91.61 GUI Programming I: Implementing a Bit of Scrabble with Drag-and-Drop
+Kevin Z. Huang , kevin_huang2@student.uml.edu
+Copyright (c) 2019 by Kevin Z. Huang.
+Assignment to create a game of Scrabble
+Created December 14, 2019 at 5:02 PM
+Updated by KZH on December 20, 2019 at 1:13 AM
 */
-
-
-/**
- *      This function calls find_word(), and then determines if the word is valid
- *      or not. This will be implemented at some point using an external API
- *      or some sort of Google search thing.
- *
- *      I used an awesome website to figure this one out, so just check out the
- *      this URL for details: http://ejohn.org/blog/dictionary-lookups-in-javascript/
- *
- */
 function submit_word() {
-  // Call find_word to update the word.
-  //find_word();
-
   var word = $("#word").html();
 
   // The user needs to play a tile first...
   if (word == "____") {
     // The user isn't so smart. Tell them to try again.
     $("#messages").html("<br><div class='highlight_centered_error'> \
-    Sorry, but you need to play a tile before I can check the word for you!</div>");
+    Sorry, but you need to play a tile before I can check!</div>");
     console.log("Please play some tiles first.");
     return -1;
   }
 
-  // Make sure the word is lower cased or it might not be found in the dictionary!
-  word = word.toLowerCase();
-
-
-  // Let's see if our word is in the dictionary.
   if ( 1 ) {
-    // If it is, AWESOME! The user is so smart.
     $("#messages").html("<br><div class='highlight_centered_success'> \
     Nice job! \"" + word + "\" is considered a word by the game's dictionary!<br><br> \
     <button class='smaller_button' onclick='confirm_save_word();'>Save Word & Play Again.</button><br><br></div>");
@@ -69,24 +34,11 @@ function submit_word() {
 
 }
 
-
-/**
- *    This function confirms that the user wants to save the currently played word.
- *    This function uses a cool alert replacement called Sweet Alert.
- *    URL: https://t4t5.github.io/sweetalert/
- */
 function confirm_save_word() {
   save_word();
   reset_game();
 }
 
-
-/**
- *    This function will save the currently played word / score
- *    and provide the user with new tiles to play with. This will let them play
- *    as many words as they would like and keep their score as well.
- *
- */
 function save_word() {
   var game_board_length = game_board.length;      // Get gameboard array length
   var word;                                       // array for the current word
@@ -102,9 +54,6 @@ function save_word() {
 
   // Save everything in the game area into this new array.
   for(var i = 0; i < game_board_length; i++) {
-    // temp obj, we need to save each array with the id of the droppable space
-    // and with the letter that droppable space holds. this will make it easier
-    // when we go to figure out what 2nd / 3rd / etc word the user is creating.
     var obj = {};
     obj["id"] = game_board[i].id;
     obj["letter"] = find_letter(game_board[i].tile);
@@ -112,16 +61,12 @@ function save_word() {
 
     word.push(obj);   // Push obj back.
 
-    // Mark the space as disabled so that the user cannot swap the tile in the future.
-    // See this Stackoverflow post for more info: https://stackoverflow.com/questions/3948447/jquery-ui-droppable-only-accept-one-draggable
     $("#" + obj["id"]).droppable('disable');
 
     // Make the draggable disabled too so that the user can't drag the tile back to the rack.
     try {
       $("#" + tile_ID).draggable('disable');
 
-      // Also change the id of the tile so it doesn't get recalled either.
-      // use the game board length and current letter to make each disabled tile have a unique id.
       $("#" + tile_ID).attr("id", "disabled" + (i + complete_words.length) );  // start at 0, add length to make unique
 
       // Generate a new letter to be used.
@@ -160,8 +105,6 @@ function save_word() {
       });
     }
     catch(e) {
-      // the above code might fail on multiple words.
-      // if so just ignore it.
     }
   }
 
@@ -188,10 +131,6 @@ function save_word() {
 }
 
 
-
-/*
- *    This function will force all the tiles in the game_tiles array back into the rack.
- */
 function reset_tiles() {
   // Let the user know what's going on.
   $("#messages").html("<br><div class='highlight_centered_success'> \
@@ -203,8 +142,6 @@ function reset_tiles() {
 
     // Reposition the tile on top of the rack, nicely in a row with the other tiles.
 
-    // We first get the rack's location on the screen. Idea from a Stackoverflow post,
-    // URL: https://stackoverflow.com/questions/885144/how-to-get-current-position-of-an-image-in-jquery
     var pos = $("#the_rack").position();
 
     // Now figure out where to reposition the board piece.
@@ -231,12 +168,6 @@ function reset_tiles() {
   return;
 }
 
-
-/**
- *    This function confirms that the user wants to reset the entire game board.
- *    This function uses a cool alert replacement called Sweet Alert.
- *    URL: https://t4t5.github.io/sweetalert/
- */
 function confirm_reset() {
   reset_game_board();
 }
@@ -245,8 +176,7 @@ function reset_game() {
   var word_count = complete_words.length;
 
   // First clear the game board array.
-  game_board = [];    // Easy way of doing this.
-  // URL for more ways of doing this: https://stackoverflow.com/questions/1232040/how-do-i-empty-an-array-in-javascript
+  game_board = [];
 
   // Now reset the pieces array.
   load_pieces_array();
@@ -256,7 +186,6 @@ function reset_game() {
     var tileID = '#' + game_tiles[i].id;
     $(tileID).draggable("destroy");    // Destroys the draggable element.
     $(tileID).remove();                // Removes the tile from the page.
-    // URL for more info: https://stackoverflow.com/questions/11452677/jqueryui-properly-removing-a-draggable-element
   }
 
   // Remove all the scrabble tiles on the game board.
@@ -293,24 +222,11 @@ function reset_game() {
   return;
 }
 
-/**
- *      This function resets the game board.
- *      It does so by reusing several functions:
- *      load_pieces_array()       -> resets the pieces array
- *      reset_tiles()             -> removes all the tiles on the screen.
- *      load_scrabble_pieces()    -> loads up new tiles.
- *      find_word()               -> resets what the word looked like.
- *
- *      It also removes all draggable tiles on the game board, and enables all droppable spaces.
- *      And it clears the game_board array and complete_words array.
- *
- */
 function reset_game_board() {
   var word_count = complete_words.length;
 
   // First clear the game board array.
-  game_board = [];    // Easy way of doing this.
-  // URL for more ways of doing this: https://stackoverflow.com/questions/1232040/how-do-i-empty-an-array-in-javascript
+  game_board = [];
 
   // Now reset the pieces array.
   load_pieces_array();
@@ -325,8 +241,7 @@ function reset_game_board() {
   for(var i = 0; i < 7; i++) {
     var tileID = '#' + game_tiles[i].id;
     $(tileID).draggable("destroy");    // Destroys the draggable element.
-    $(tileID).remove();                // Removes the tile from the page.
-    // URL for more info: https://stackoverflow.com/questions/11452677/jqueryui-properly-removing-a-draggable-element
+    $(tileID).remove();
   }
 
   // Remove all the scrabble tiles on the game board.
@@ -359,6 +274,5 @@ function reset_game_board() {
   $("#messages").html("<br><div class='highlight_centered_success'> \
   BOARD AND TILES RESET.<br>CHECK THE RACK FOR NEW TILES.</div>");
 
-  // Now we're done! Woot!
   return;
 }
