@@ -188,7 +188,7 @@ function load_droppable_targets() {
       var dup_index = 0;                // I think this was to be where in the game board array the duplicate is.
       //left_right                      // Determines if the word is read left to right, or top to bottom. (THIS IS GLOBAL, IT NEEDS TO BE FOR THE FIND_WORD FUNCTION!)
       var insert_beg = false;           // Determines if we should tiles at the beginning or the end.
-      var star_spot = "row7_col7";      // Star in the middle of the board.
+      var star_spot = "row0_col0";      // Star in the middle of the board.
       var gameboard_length = 0;         // The length of the game board array (global array).
       var number_of_words = 0;          // Number of played words.
       var valid = 0;                    // Used for determining valid right angles.

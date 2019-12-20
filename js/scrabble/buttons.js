@@ -34,7 +34,7 @@
  */
 function submit_word() {
   // Call find_word to update the word.
-  find_word();
+  //find_word();
 
   var word = $("#word").html();
 
@@ -50,16 +50,9 @@ function submit_word() {
   // Make sure the word is lower cased or it might not be found in the dictionary!
   word = word.toLowerCase();
 
-  /*
-      The following is taken from this awesome website. I got the dictionary file off
-      my Linux OS, and it was found in "/usr/share/dict/words". It actually redirected me
-      to "/etc/dictionaries-common/words" on Ubuntu 14.04 LTS. But I opened it in Sublime text
-      anyway and saved it to my GitHub.
-      URL for the source code: http://ejohn.org/blog/dictionary-lookups-in-javascript/
-  */
 
   // Let's see if our word is in the dictionary.
-  if ( dict[ word ] ) {
+  if ( 1 ) {
     // If it is, AWESOME! The user is so smart.
     $("#messages").html("<br><div class='highlight_centered_success'> \
     Nice job! \"" + word + "\" is considered a word by the game's dictionary!<br><br> \
@@ -83,31 +76,8 @@ function submit_word() {
  *    URL: https://t4t5.github.io/sweetalert/
  */
 function confirm_save_word() {
-  swal({
-    title: "Are you sure?",
-    text: "This will save the current word to the game board.\n\
-    You will not be able to modify the word afterwards.\n \
-    Are you sure you want to keep this word and play another one?",
-    type: "warning",
-    showCancelButton: true,
-    confirmButtonColor: "#DD6B55",
-    confirmButtonText: "Yes.",
-    closeOnConfirm: true
-    },
-    // This is from the example page at: https://t4t5.github.io/sweetalert/
-    // Basically I can quit if the user hits cancel, or continue if they hit Yes.
-    function(isConfirm) {
-      if (isConfirm) {
-        save_word();
-        return false;
-      }
-      else {
-        // Let the user know what's going on.
-        $("#messages").html("<br><div class='highlight_centered_error'> \
-        SUBMIT WORD CANCELED.</div>");
-        return false;
-      }
-  });
+  save_word();
+  reset_game();
 }
 
 
@@ -268,34 +238,60 @@ function reset_tiles() {
  *    URL: https://t4t5.github.io/sweetalert/
  */
 function confirm_reset() {
-  // Since the reset function is very destructive, we should confirm with the user if
-  // they are SURE they want to clear the entire game board.
-  swal({
-    title: "Are you sure?",
-    text: "This will clear the ENTIRE game board, reset your tiles and destroy \
-    any words that were placed.\n Are you really sure you want to do this?",
-    type: "warning",
-    showCancelButton: true,
-    confirmButtonColor: "#DD6B55",
-    confirmButtonText: "Yes.",
-    closeOnConfirm: true
-    },
-    // This is from the example page at: https://t4t5.github.io/sweetalert/
-    // Basically I can quit if the user hits cancel, or continue if they hit Yes.
-    function(isConfirm) {
-      if (isConfirm) {
-        reset_game_board();
-        return false;
-      }
-      else {
-        // Let the user know what's going on.
-        $("#messages").html("<br><div class='highlight_centered_success'> \
-        RESET BOARD CANCELED.</div>");
-        return false;
-      }
-  });
+  reset_game_board();
 }
 
+function reset_game() {
+  var word_count = complete_words.length;
+
+  // First clear the game board array.
+  game_board = [];    // Easy way of doing this.
+  // URL for more ways of doing this: https://stackoverflow.com/questions/1232040/how-do-i-empty-an-array-in-javascript
+
+  // Now reset the pieces array.
+  load_pieces_array();
+
+  // Remove all the scrabble tiles in the rack.
+  for(var i = 0; i < 7; i++) {
+    var tileID = '#' + game_tiles[i].id;
+    $(tileID).draggable("destroy");    // Destroys the draggable element.
+    $(tileID).remove();                // Removes the tile from the page.
+    // URL for more info: https://stackoverflow.com/questions/11452677/jqueryui-properly-removing-a-draggable-element
+  }
+
+  // Remove all the scrabble tiles on the game board.
+  for(var i = 0; i < word_count; i++) {
+    // Get the individual spaces to remove.
+    for(var x = 0; x < complete_words[i].length; x++) {
+      var space = complete_words[i][x].id;
+
+      // Make the space droppable again.
+      $("#" + space).droppable("enable");
+
+      // Remove the tile attached to the space.
+      $("#disabled" + (i + x)).remove();    // The i + x will access all of them, since i starts at 0.
+    }
+  }
+
+  // Clear the complete word array.
+  complete_words = [];
+
+  // Load up some new Scrabble pieces!
+  load_scrabble_pieces();
+
+  // Resets the HTML "Word: " and "Score: " display.
+  find_word();    // Technically this returns -1 and just wipes the display clean.
+
+  // Update the "Letters Remaining" table.
+  update_remaining_table();
+
+  // Let the user know what's going on.
+  $("#messages").html("<br><div class='highlight_centered_success'> \
+  BOARD AND TILES RESET.<br>CHECK THE RACK FOR NEW TILES.</div>");
+
+  // Now we're done! Woot!
+  return;
+}
 
 /**
  *      This function resets the game board.

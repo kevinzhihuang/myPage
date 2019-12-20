@@ -168,36 +168,6 @@ td.larger_td {
   background: url("img/scrabble/triple_word.png");
 }
 
-/**
- *      I did not create this star. I found it at this URL:
- *      http://vignette3.wikia.nocookie.net/fantendo/images/4/49/Super_Star_NSMB2.png/revision/20120731024244
- */
-.star {
-  /*background: #e5acb6;*/
-  background: url("../img/scrabble/star.png");
-}
-
-/* The middle star's style. */
-#star_img {
-  /*  This chunk SOME HOW centers the image.
-      I honestly just kept messing with the margin to force it to be as
-      centered as I could tell.
-      This post on Stackoverflow was the idea for that:
-      https://stackoverflow.com/questions/10371355/css-how-to-vertically-and-horizontally-align-an-image
-      ACTUALLY, this one worked better. The other post is a good reference too though!
-      https://css-tricks.com/snippets/css/absolute-center-vertical-horizontal-an-image/
-  */
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-left: -20px;   /* These are half the high and width! */
-  margin-top: -20px;
-
-  height: 40px;
-  width: 40px;
-  z-index: 0;           /* This needs to be below the pieces z-index of 1. */
-}
-
 /* Need to figure out what this is for. */
 .resize_board {
   height: 125px;

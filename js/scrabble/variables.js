@@ -74,27 +74,6 @@ var number_of_words = 0;
 // As seen here: https://stackoverflow.com/questions/12350259/original-position-of-a-draggable-in-jquery-ui
 var startPos;
 
-// URL for this source code: http://ejohn.org/blog/dictionary-lookups-in-javascript/
-// See the "Submit word" function for more info.
-// The dictionary lookup object
-// Also, future note, a better dictionary file might be found here:
-// http://www.math.sjsu.edu/~foster/dictionary.txt
-var dict = {};
-
-// Do a jQuery Ajax request for the text dictionary
-// Note, used this page to make the dictionary all lowercase:
-// URL: http://linuxcommando.blogspot.com/2008/05/how-to-convert-text-files-to-all-upper.html
-$.get( "files/dictionary.txt", function( txt ) {
-    // Get an array of all the words
-    var words = txt.split( "\n" );
-
-    // And add them as properties to the dictionary lookup
-    // This will allow for fast lookups later
-    for ( var i = 0; i < words.length; i++ ) {
-        dict[ words[i] ] = true;
-    }
-});
-
 // Save the score of all the words saved. Only updates when a word is saved, which allows
 // the scoring function (find_word()) to work properly.
 var word_score = 0;
